@@ -4,7 +4,11 @@ dist: trusty
 
 language: node_js
 
-node_js: 14
+node_js:
+  - 14  # Test against Node.js 14 (LTS)
+  - 16  # Test against Node.js 16 (Active LTS)
+  - 18  # Test against Node.js 18 (Current version)
+
 env:
   - TASK=test
   - TASK=lint
