@@ -1,55 +1,57 @@
-# Buffer
+# Snake Game
 
-[![Build Status](https://travis-ci.com/ensdomains/buffer.svg?branch=master)](https://travis-ci.com/ensdomains/buffer) [![License](https://img.shields.io/badge/License-BSD--2--Clause-blue.svg)](LICENSE)
+A modern take on the classic Snake game implemented with vanilla HTML, CSS, and JavaScript. Steer the snake, grab the food, and avoid colliding with the walls or your own tail as the pace quickens.
 
-A library for working with mutable byte buffers in Solidity.
+## Features
 
-Byte buffers are mutable and expandable, and provide a variety of primitives for writing to them. At any time you can fetch a bytes object containing the current contents of the buffer. The bytes object should not be stored between operations, as it may change due to resizing of the buffer.
+- Responsive canvas that plays nicely on desktop and mobile browsers
+- Keyboard (arrow keys & WASD) and touch swipe controls
+- Persistent high-score tracking via `localStorage`
+- Restart button and end-of-game overlay
+- Lightweight, dependency-free code base that can be deployed as static assets
 
-## Getting Started
+## Getting started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+1. Clone the repository:
 
-### Installing
+   ```bash
+   git clone https://github.com/<your-username>/snake-game.git
+   cd snake-game
+   ```
 
-Buffer uses npm to manage dependencies, therefore the installation process is kept simple:
+2. Open `index.html` in your favourite browser. That's it! No build steps required.
 
-```
-npm install
-```
+If you prefer to run the game from a local development server (which enables live reload in many editors), you can use any static server. For example, with Node.js installed:
 
-### Running tests
-
-Buffer uses truffle for its ethereum development environment. All tests can be run using truffle:
-
-```
-truffle test
-```
-
-To run linting, use solium:
-
-```
-solium --dir ./contracts
+```bash
+npx http-server .
 ```
 
-## Including Buffer in your project
+## Controls
 
-### Installation
+| Action        | Keyboard             | Touch |
+| ------------- | -------------------- | ----- |
+| Move up       | Arrow Up / W         | Swipe up |
+| Move down     | Arrow Down / S       | Swipe down |
+| Move left     | Arrow Left / A       | Swipe left |
+| Move right    | Arrow Right / D      | Swipe right |
+| Restart game  | R key / Restart button | Tap restart / Play Again |
+
+## Project structure
 
 ```
-npm install buffer --save
+.
+├── index.html     # App markup & canvas layout
+├── styles.css     # UI styling
+└── script.js      # Game logic and input handling
 ```
 
-## Built With
-* [Truffle](https://github.com/trufflesuite/truffle) - Ethereum development environment 
+## Customisation tips
 
-
-## Authors
-
-* **Nick Johnson** - [Arachnid](https://github.com/Arachnid)
-
-See also the list of [contributors](https://github.com/ensdomains/buffer/contributors) who participated in this project.
+- Adjust the `tileCount`, `startingSpeed`, or `minimumSpeed` constants in `script.js` to tweak the difficulty curve.
+- Replace the colours in `styles.css` to make the game match your preferred palette.
+- Add new power-ups or obstacles by extending the `update` function in `script.js`.
 
 ## License
 
-This project is licensed under the BSD 2-clause "Simplified" License - see the [LICENSE](LICENSE) file for details
+This project is released under the [MIT License](LICENSE). Feel free to remix and deploy your own version.
